@@ -4,11 +4,11 @@ import ReactDOM from "react-dom";
 // Add in all necessary components and libary methods:
 // import createStore, thunk and applyMiddleware
 import { createStore, applyMiddleware } from "redux";
-import { logger } from "redux-logger";
-import { thunk } from "redux-thunk";
+import logger from "redux-logger";
+import thunk from "redux-thunk";
 
 // import Provider and reducer
-import { Provider } from "react";
+import { Provider } from "react-redux";
 import { reducer } from "./reducers";
 
 import "./index.css";

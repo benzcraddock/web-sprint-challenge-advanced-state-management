@@ -1,3 +1,6 @@
+// import axios
+import axios from 'axios';
+
 // export and create action creators
 export const FETCH_START = "FETCH_START";
 export const FETCH_SUCCESS = "FETCH_SUCCESS";
@@ -5,13 +8,17 @@ export const FETCH_FAIL = "FETCH_FAIL";
 export const ADD_SMURF = "ADD_SMURF";
 export const ADD_ERROR = "ADD_ERROR";
 
-// import axios
-import axios from 'axios';
-
 // add thunk fetchSmurfs
 export const fetchSmurfs = () => {
-  return() => {
-    
+  return(dispatch) => {
+    dispatch(fetchStart);
+    axios.get('http://localhost:3333/smurfs')
+      .then(res => {
+        dispatch(fetchSuccess(res.data));
+      })
+      .catch(err => {
+        dispatch(fetchFail(err));
+      })
   }
 }
 
@@ -19,19 +26,19 @@ export const fetchStart = () => {
   return ({type: FETCH_START});
 }
 
-export const fetchSuccess = () => {
+export const fetchSuccess = (smurfs) => {
   return ({type: FETCH_SUCCESS, payload: smurfs});
 }
 
-export const fetchFail = () => {
+export const fetchFail = (error) => {
   return ({type: FETCH_FAIL, payload: error});
 }
 
-export const addSmurf = () => {
+export const addSmurf = (smurfs) => {
   return ({type: ADD_SMURF, payload: smurfs});
 }
 
-export const addError = () => {
+export const addError = (error) => {
   return ({type: ADD_ERROR, payload: error});
 }
 
