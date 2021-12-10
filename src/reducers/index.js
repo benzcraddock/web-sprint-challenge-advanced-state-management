@@ -4,7 +4,7 @@ import {
   FETCH_SUCCESS,
   FETCH_FAIL,
   ADD_SMURF,
-  ADD_ERROR
+  SET_ERROR
 } from "../actions";
 
 export const initialState = {
@@ -53,7 +53,7 @@ export const reducer = (state = initialState, action)=>{
         smurfs: [...state.smurfs, newSmurf]
       })
 
-    case(ADD_ERROR):
+    case(SET_ERROR):
       return ({
         ...state,
         error: 'THERE IS AN ERROR'

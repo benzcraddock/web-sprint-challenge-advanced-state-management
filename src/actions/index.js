@@ -6,7 +6,7 @@ export const FETCH_START = "FETCH_START";
 export const FETCH_SUCCESS = "FETCH_SUCCESS";
 export const FETCH_FAIL = "FETCH_FAIL";
 export const ADD_SMURF = "ADD_SMURF";
-export const ADD_ERROR = "ADD_ERROR";
+export const SET_ERROR = "SET_ERROR";
 
 // add thunk fetchSmurfs
 export const fetchSmurfs = () => {
@@ -38,8 +38,8 @@ export const addSmurf = (smurfs) => {
   return ({type: ADD_SMURF, payload: smurfs});
 }
 
-export const addError = (error) => {
-  return ({type: ADD_ERROR, payload: error});
+export const setError = (error) => {
+  return ({type: SET_ERROR, payload: error});
 }
 
 

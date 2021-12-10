@@ -80,9 +80,9 @@ In this project, you will build the reducer, actions and basic redux connects to
 ### Complete components/SmurfList.js
   Connect this component to your smurfs and loading screen state slices.
   
-  * [ ] Connect the smurfs and loading state values to the SmurfList component.
-  * [ ] Replace the single Smurf component instance with a map return a Smurf component for each entry in the smurfs list.
-  * [ ] Replace the static isLoading variable with the state loading variable.
+  * [X] Connect the smurfs and loading state values to the SmurfList component.
+  * [X] Replace the single Smurf component instance with a map return a Smurf component for each entry in the smurfs list.
+  * [X] Replace the static isLoading variable with the state loading variable.
 
 ### Complete components/AddForm.js
   Connect this component to the error state slice, setError and addSmurf actions. Complete the form handling code.
@@ -113,8 +113,16 @@ Be prepared to demonstrate your understanding of this week's concepts by answeri
 
 1. What problem does the context API help solve?
 
+Context API helps to keep state clean - especially when we have global data that many components share, or when we have to pass data through intermediate components. 
+
 2. In your own words, describe `actions`, `reducers` and the `store` and their role in Redux. What does each piece do? Why is the store known as a 'single source of truth' in a redux application?
+
+In Redux, actions are objects with two properties (type and payload) and are dispatched to the reducer. A reducer is a pure function that does not produce any side effects and returns a new object while taking in two arguments (the Redux store's current state and the aforementioned action object). Moreover, store is what contains the state for the application. Store is known as a 'single source of truth' in a Redux app because the global state of the application is stored in a state tree within a single store.
 
 3. What does `redux-thunk` allow us to do? How does it change our `action-creators`?
 
+Redux Thunk allows us to make reducer flow asynchronous, and thus allows us to make API calls from our action creators. Redux Middleware intercepts the Redux flow, and thunks are a function that is returned by another function.
+
 4. What is your favorite state management system you've learned and this sprint? Please explain why!
+
+Context API because it is relatively easy to setup and can connect to any state. Also, with Context API, you don't have to worry about passing data through pops manually every time. 
