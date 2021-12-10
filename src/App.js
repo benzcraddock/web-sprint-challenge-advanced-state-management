@@ -5,18 +5,17 @@ import SmurfList from './components/SmurfList';
 import Header from './components/Header';
 
 // connect fetchSmurfs actions to App and import connect
-import { fetchSmurfs, fetchFail } from "./actions";
+import { fetchSmurfs } from "./actions";
 import { connect } from "react-redux";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css";
 
 const App = (props)=> {
-  const { smurfs, isLoading, error } = props;
   
   useEffect(() => {
     props.fetchSmurfs();
-  }, [])
+  }, []);
 
   return (
     <div className="App">
@@ -38,7 +37,7 @@ const mapStateToProps = (state) => {
   })
 }
 
-export default connect(mapStateToProps, { fetchSmurfs, fetchFail })(App);
+export default connect(mapStateToProps, { fetchSmurfs })(App);
 
 //Task List:
 //1. Connect the fetchSmurfs actions to the App component.
