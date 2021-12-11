@@ -32,6 +32,10 @@ const AddForm = (props) => {
         }
     }
 
+    const handleClick = () => {
+        props.addSmurf();
+    }
+
     return(<section>
         <h2>Add Smurf</h2>
         <form onSubmit={handleSubmit}>
@@ -54,7 +58,7 @@ const AddForm = (props) => {
             {
                 errorMessage && <div data-testid="errorAlert" className="alert alert-danger" role="alert">Error: {props.setError()}</div>
             }
-            <button>Submit Smurf</button>
+            <button onClick={handleClick}>Submit Smurf</button>
         </form>
     </section>);
 }
