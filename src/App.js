@@ -12,9 +12,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css";
 
 const App = (props)=> {
-  
+  const { fetchSmurfs } = props;
+
   useEffect(() => {
-    props.fetchSmurfs();
+    fetchSmurfs();
   }, []);
 
   return (
@@ -29,15 +30,7 @@ const App = (props)=> {
   );
 }
 
-const mapStateToProps = (state) => {
-  return ({
-    smurfs: state.smurfs,
-    isLoading: state.isLoading,
-    error: state.error
-  })
-}
-
-export default connect(mapStateToProps, { fetchSmurfs })(App);
+export default connect(null, { fetchSmurfs })(App);
 
 //Task List:
 //1. Connect the fetchSmurfs actions to the App component.

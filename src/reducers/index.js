@@ -4,7 +4,8 @@ import {
   FETCH_SUCCESS,
   FETCH_FAIL,
   ADD_SMURF,
-  SET_ERROR
+  SET_ERROR,
+  ERROR_MESSAGE
 } from "../actions";
 
 export const initialState = {
@@ -31,7 +32,7 @@ export const reducer = (state = initialState, action)=>{
     case(FETCH_SUCCESS):
       return ({
         ...state,
-        smurfs: [...state.smurfs, action.payload],
+        smurfs: action.payload,
         isLoading: false,
         error: ''
       })
@@ -44,19 +45,21 @@ export const reducer = (state = initialState, action)=>{
       })
     
     case(ADD_SMURF):
-      const newSmurf = {
-        ...action.payload,
-        id: Date.now()
-      }
       return ({
         ...state,
-        smurfs: [...state.smurfs, newSmurf]
+        smurfs: [...state.smurfs, action.payload]
       })
 
     case(SET_ERROR):
       return ({
         ...state,
-        error: 'THERE IS AN ERROR'
+        error: action.payload
+      })
+
+    case(ERROR_MESSAGE):
+      return ({
+        ...state,
+        error: action.payload
       })
 
     default:

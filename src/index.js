@@ -9,11 +9,10 @@ import thunk from "redux-thunk";
 
 // import Provider and reducer
 import { Provider } from "react-redux";
-import { reducer } from "./reducers";
+import reducer from "./reducers";
 
 import "./index.css";
 import App from "./App";
-import { Form } from "react-bootstrap";
 
 const { worker } = require('./mocks/browser');
 worker.start();
